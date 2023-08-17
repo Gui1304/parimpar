@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            padding: 40px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #002366;
+        }
+
+        #resultado {
+            font-weight: bold;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Verificador de Paridade</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Paridade</h1>
+        <form id="paridade-form">
+            <label for="numero">Digite um número inteiro:</label>
+            <input type="number" id="numero" name="numero" required>
+            <button type="submit">Verificar</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        const form = document.getElementById("paridade-form");
+        const resultado = document.getElementById("resultado");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const numero = parseInt(document.getElementById("numero").value);
+            if (isNaN(numero)) {
+                resultado.innerText = "Por favor, digite um número válido.";
+            } else {
+                resultado.innerText = numero % 2 === 0 ? "O número é par." : "O número é ímpar.";
+            }
+        });
+    </script>
+</body>
+</html>
